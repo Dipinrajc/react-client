@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { callApi } from '../CallApi';
-import { Button } from 'reactstrap';
+import { Row, Col, Button, Form, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
 class RegForm extends Component {
   constructor(props) {
     super(props);
@@ -44,28 +44,26 @@ class RegForm extends Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-md-8">
-          <div className="container">
-            <form className="form" onSubmit={this.handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="username">
-                  Username:
-                </label>
-                <input className="form-control" name="username" type="text" value={this.state.username} onChange={this.handleUserNameChange} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password">
-                  Password:
-                </label>
-                <input className="form-control" name="password" type="text" value={this.state.password} onChange={this.handlePasswordChange} />
-              </div>
+      <Row>
+        <Col xs="12">
+          <Form onSubmit={this.handleSubmit}>
+            <FormGroup>
+              <Label for="username">Username</Label>
+              <Input type="username" name="username" id="username" placeholder="Username" value={this.state.username} onChange={this.handleUserNameChange} />
+              <Input invalid/>
+              <FormFeedback invalid>Please fill this field</FormFeedback>
+            </FormGroup>
+            <FormGroup>
+              <Label for="password">Password</Label>
+              <Input type="password" name="password" id="password" placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange} />
+            </FormGroup>
+            <FormGroup>
               <Button type="submit" color="success mr-2" onClick={this.handleRegister}>Submit</Button>
               <Button color="danger" onClick={this.handleCancel}>Cancel</Button>
-            </form>
-          </div>
-        </div>
-      </div>
+            </FormGroup>
+          </Form>
+        </Col>
+      </Row>
     );
   }
 }

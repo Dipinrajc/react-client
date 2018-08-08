@@ -3,7 +3,7 @@ import './App.css';
 import RegForm from './components/RegForm';
 import LoginForm from './components/LoginForm';
 import UpdateForm from './components/UpdateForm';
-import { Button } from 'reactstrap';
+import {Row, Col, Button } from 'reactstrap';
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   getButtons() {
-    return <div className="row"><div className="col-md-8"> <Button color="info" onClick={this.handleRegister}>Register</Button> <Button color="success" onClick={this.handleLogin}>Login</Button> <Button color="primary" onClick={this.handleUpdate}>Update</Button></div></div>;
+    return  <Row><Col xs="12"><Button color="info" onClick={this.handleRegister}>Register</Button> <Button color="success" onClick={this.handleLogin}>Login</Button> <Button color="primary" onClick={this.handleUpdate}>Update</Button></Col></Row>;
   }
 
   handleLogin = () => {
