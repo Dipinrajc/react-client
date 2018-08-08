@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import RegForm from './components/RegForm';
-import LoginForm from './components/LoginForm';
-import UpdateForm from './components/UpdateForm';
-import { Button } from 'reactstrap';
+import RegForm from './RegForm';
+import LoginForm from './LoginForm';
+import UpdateForm from './UpdateForm';
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +17,7 @@ class App extends Component {
   }
 
   getButtons() {
-    return <div className="row"><div className="col-md-8"> <Button color="info" onClick={this.handleRegister}>Register</Button> <Button color="success" onClick={this.handleLogin}>Login</Button> <Button color="primary" onClick={this.handleUpdate}>Update</Button></div></div>;
+    return <div className="buttonDiv"><button  className="btn btn-info" onClick={this.handleRegister}>Register</button><button className="btn btn-success" onClick={this.handleLogin}>Login</button><button  className="btn btn-warning" onClick={this.handleUpdate}>Update</button></div>;
   }
 
   handleLogin = () => {

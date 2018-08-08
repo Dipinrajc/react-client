@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { callApi } from '../CallApi';
-import { Button } from 'reactstrap';
+import { callApi } from './CallApi';
 class RegForm extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +25,7 @@ class RegForm extends Component {
         alert(response.message);
         this.inputChange(response);
       });
-    } else {
+    }else{
       alert("Please fill all the fields");
     }
     event.preventDefault();
@@ -44,28 +43,20 @@ class RegForm extends Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-md-8">
-          <div className="container">
-            <form className="form" onSubmit={this.handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="username">
-                  Username:
-                </label>
-                <input className="form-control" name="username" type="text" value={this.state.username} onChange={this.handleUserNameChange} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password">
-                  Password:
-                </label>
-                <input className="form-control" name="password" type="text" value={this.state.password} onChange={this.handlePasswordChange} />
-              </div>
-              <Button type="submit" color="success mr-2" onClick={this.handleRegister}>Submit</Button>
-              <Button color="danger" onClick={this.handleCancel}>Cancel</Button>
-            </form>
-          </div>
-        </div>
-      </div>
+      <form className="formDiv" onSubmit={this.handleSubmit}>
+        <label>
+          Username:
+          <input type="text" value={this.state.username} onChange={this.handleUserNameChange} />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input type="password" value={this.state.password} onChange={this.handlePasswordChange} />
+        </label>
+        <br />
+       <input className="btn btn-success" type="submit" value="Submit" />
+        <input className="btn btn-danger" type="button" value="Cancel" onClick={this.handleCancel} />
+      </form>
     );
   }
 }
