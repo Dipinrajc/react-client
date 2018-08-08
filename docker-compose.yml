@@ -1,0 +1,8 @@
+version: '2'
+services:
+  aniq-ui:
+    image: aniq-ui-app
+    volumes:
+      - /etc/mozea/docker/aniq/ui/logs:/tmp/logs
+    ports:
+      - "443:3000"
